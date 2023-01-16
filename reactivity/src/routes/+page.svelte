@@ -9,6 +9,14 @@
   const resetCount = () => {
     count = 0;
   };
+
+  $: {
+    console.log(count);
+    if (count > 9) {
+      console.log("It's to high");
+      count = 9;
+    }
+  }
 </script>
 
 <div> Click count: {count} {count <= 1 ? "time" : "times"} </div>
