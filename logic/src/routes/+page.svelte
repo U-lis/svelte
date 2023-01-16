@@ -78,7 +78,7 @@
 
 <hr>
 
-{#each things as thing}
+{#each things as thing (thing.id)}
     <Thing name={thing.name}></Thing>
 {/each}
 <button on:click={removeFirst}>Remove First</button>
