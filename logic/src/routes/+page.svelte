@@ -12,6 +12,12 @@
   const reset = () => {
     number = 0;
   }
+
+  let cats = [
+    {id: 'J---aiyznGQ', name: 'Keyboard Cat'},
+    {id: 'z_AbfPXTKms', name: 'Maru'},
+    {id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat'}
+  ];
 </script>
 
 <div>User login status : {user.loggedIn}</div>
@@ -36,3 +42,11 @@
 </div>
 <button on:click={increment}>Click</button>
 <button on:click={reset}>Reset</button>
+
+<hr>
+
+<ul>
+    {#each cats as cat, i}
+        <li>No.{i + 1}: {cat.name}</li>
+    {/each}
+</ul>
