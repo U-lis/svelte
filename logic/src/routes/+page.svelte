@@ -1,4 +1,6 @@
 <script>
+  import Thing from "../components/Thing.svelte";
+
   let user = {loggedIn: false};
 
   const toggle = () => {
@@ -18,6 +20,29 @@
     {id: 'z_AbfPXTKms', name: 'Maru'},
     {id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat'}
   ];
+
+  const thingsOriginal = [
+    {id: 1, name: 'apple'},
+    {id: 2, name: 'banana'},
+    {id: 3, name: 'carrot'},
+    {id: 4, name: 'doughnut'},
+    {id: 5, name: 'egg'},
+  ];
+
+  let things = [
+    {id: 1, name: 'apple'},
+    {id: 2, name: 'banana'},
+    {id: 3, name: 'carrot'},
+    {id: 4, name: 'doughnut'},
+    {id: 5, name: 'egg'},
+  ];
+
+  const removeFirst = () => {
+    things = things.slice(1);
+  };
+  const resetThings = () => {
+    things = thingsOriginal;
+  };
 </script>
 
 <div>User login status : {user.loggedIn}</div>
@@ -50,3 +75,11 @@
         <li>No.{i + 1}: {cat.name}</li>
     {/each}
 </ul>
+
+<hr>
+
+{#each things as thing}
+    <Thing name={thing.name}></Thing>
+{/each}
+<button on:click={removeFirst}>Remove First</button>
+<button on:click={resetThings}>Reset List</button>
