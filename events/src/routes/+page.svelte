@@ -1,5 +1,5 @@
 <script>
-  import Inner from "../components/Inner.svelte";
+  import Outer from "../components/Outer.svelte";
 
   let m = {x: 0, y: 0};
   let mm = {x: 0, y: 0};
@@ -24,7 +24,7 @@
 <button on:click|once={handleAlert}>One time alert</button>
 
 <!-- dispatch message event from Inner.svelte -->
-<Inner on:message={handleMessage}></Inner>
+<Outer on:message={handleMessage}/>
 
 <style>
   div {
