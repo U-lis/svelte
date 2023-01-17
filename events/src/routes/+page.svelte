@@ -1,5 +1,6 @@
 <script>
   import Outer from "../components/Outer.svelte";
+  import CustomButton from "../components/CustomButton.svelte";
 
   let m = {x: 0, y: 0};
   let mm = {x: 0, y: 0};
@@ -17,6 +18,10 @@
     // data from Inner.svelte: {text: "hello"} in e.detail
     alert(e.detail.text);
   };
+
+  const handleClick = () => {
+    alert("custom button clicked");
+  };
 </script>
 
 <div on:mousemove={handleMouseMove}>The mouse position is: {m.x}, {m.y}</div>
@@ -25,10 +30,11 @@
 
 <!-- dispatch message event from Inner.svelte -->
 <Outer on:message={handleMessage}/>
+<CustomButton on:click={handleClick}/>
 
 <style>
-  div {
-      width: 100%;
-      height: 20%;
-  }
+    div {
+        width: 100%;
+        height: 20%;
+    }
 </style>
